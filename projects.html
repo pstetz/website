@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <title>Patrick Stetz</title>
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/orbit.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/orbit.css">
+</head>
+<body>
+  <div class="container" style="width:100%; padding: 0">
+    <div class="jumbotron" style="padding: 0">
+      <nav>
+        <div class="row" style="background: black; color: white; padding: 20px 0">
+          <div class="col-xs-10 col-xs-offset-1">
+            <span><a href="index.html">Home</a></span>
+            <span><a href="about.html">About</a></span>
+            <span><a href="contact.html">Contact</a></span>
+            <span><a href="projects.html">Projects</a></span>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+          <h3>Click anywhere!</h3>
+          <div id="orbit_info" class="hidden">
+            <p>There will be upcoming functionality where you may delete certain planets and keep going</p>
+            <p>Unfortunately as of now, your only option is to refresh</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-xs-offset-4">
+            <p id='maximum_planets_reached' class="hidden" style="color: red; background: black; border-radius: 5px; text-align: center">
+              Maximum number of planets reached.  Sorry
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="planet1" class='planet hidden'></div>
+    <div id="planet2" class='planet hidden'></div>
+    <div id="planet3" class='planet hidden'></div>
+    <div id="planet4" class='planet hidden'></div>
+    <div id="planet5" class='planet hidden'></div>
+    <div id="planet6" class='planet hidden'></div>
+    <div id="planet7" class='planet hidden'></div>
+    <div id="planet8" class='planet hidden'></div>
+    <div id="planet9" class='planet hidden'></div>
+    <div id="planet10" class='planet hidden'></div>
+  </div>
+</body>
+</html>
