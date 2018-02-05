@@ -1,0 +1,17 @@
+.my-nav {
+	background:  #654321;
+	color: white;
+	padding: 20px 0;
+}
+.my-nav-items {
+	display: inline;
+	font-size: 18px;
+}
+.my-nav-items a {
+	color: lightblue;
+	margin: 0 3px;
+}
+.planet {
+	border-radius: 50%;
+	position: absolute;
+}
