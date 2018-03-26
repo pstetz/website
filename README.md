@@ -1,9 +1,6 @@
 # My personal website
----
 
-### Doesn't need a readme, but I want a place where I can put down future improvements.
-
----
+Doesn't need a readme, but I want a place where I can put down future improvements.
 
 ## To do list:
 
