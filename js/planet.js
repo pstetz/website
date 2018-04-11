@@ -39,9 +39,11 @@ class Planet {
   updateVelocity(f_x, f_y, delta_t) {
   	if (Math.abs(this.v_x + f_x) < SPEED_LIMIT) {
   		this.v_x += f_x * delta_t;
+      this.v_x -= this.v_x * 0.003
   	}
   	if (Math.abs(this.v_y + f_y) < SPEED_LIMIT) {
   		this.v_y += f_y * delta_t;
+      this.v_y -= this.v_y * 0.003
   	}
   }
 }

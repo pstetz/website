@@ -6,6 +6,11 @@
   <title>Patrick Stetz</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link href="jquery-ui.css" rel="stylesheet">
+  <style>
+    .goto_titanic{
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div class="container" style="width:100%; padding: 0">
@@ -16,38 +21,58 @@
             <div class='my-nav-items'><a href="index.html">Home</a></div>
             <div class='my-nav-items'><a href="about.html">About</a></div>
             <div class='my-nav-items'><a href="contact.html">Contact</a></div>
-            <div class='my-nav-items'><a href="projects.html">Extra</a></div>
+            <div class='my-nav-items'><a href="projects.html">Projects</a></div>
+            <div class='my-nav-items'><a href="extra.html">Extra</a></div>
           </div>
         </div>
       </nav>
     </div>
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <div class="row">
-          <h3>Click anywhere below!  (Do not recommend on phone)</h3>
-          <div id="orbit_info" class="">
-            <p>Hold down shift to keep the planet stationary and the longer you click down the bigger the planet gets.  Refresh to start over again.  There is a maximum of 8 planets.  There's a maximum speed limit and the gravitational force diminishes close to each horizon so that the behavior isn't too buggy.</p>
-          </div>
+        <h2>GitHub Work</h3>
+        <p>All the code for this can be found on my <a href="https://github.com/pstetz">Github</a> although it might be more visually appealing here</p>
+
+        <div class="goto_titanic">
+          <h4>Titanic Project</h3>
+          <p>This is a quick analysis into Kaggle's Titanic project</p>
         </div>
       </div>
     </div>
-  </div>
-  <div id="form_planet" style="display: flex; flex-flow: column; height: 500px; width: 100%""></div>
-  <div class="row">
-    <div id="planet1" class='planet hidden'></div>
-    <div id="planet2" class='planet hidden'></div>
-    <div id="planet3" class='planet hidden'></div>
-    <div id="planet4" class='planet hidden'></div>
-    <div id="planet5" class='planet hidden'></div>
-    <div id="planet6" class='planet hidden'></div>
-    <div id="planet7" class='planet hidden'></div>
-    <div id="planet8" class='planet hidden'></div>
-    <div id="planet9" class='planet hidden'></div>
-    <div id="planet10" class='planet hidden'></div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2>Research Presentations</h2>
+        <p>These are files of presentations I gave during my undergraduate research.</p>
+        <p>In order of most recent</p>
+        <ul>
+          <li>
+            (Poster) Design and Development of Temperature Controller for Flux Growth.
+            <a href="files/20170407BPURS_STETZ_Patrick.pdf" download="stetz_bpurs_poster.pdf">Download</a>
+          </li>
+          <li>
+            (Presentation) Carbon Nanotubes and Desalination.
+            <a href="files/2017_02_02GM_CNT_Desalination_STETZ_Patrick.pdf" download="stetz_cnnt_desalination.pdf">Download</a>
+          </li>
+          <li>
+            (Presentation) Flux Growth Development, NbSe3 in BNNT.
+            <a href="files/2016_12_8GM_Flux&NbSe3_in_BNNT_STETZ_Patrick.pdf" download="stetz_flux_growth_development.pdf">Download</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2>Publications</h3>
+        <p>T. Pham, S. Oh, P. Stetz, S. Onishi, C. Kisielowski, M. Cohen, and A. Zettl, “Torsional instability in the single-chain limit of a transition metal trichalcogenide,” arXiv:1803.02866 [cond-mat.mtrl-sci], Mar. 2018.</p>
+      </div>
+
+    </div>
   </div>
   <script src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery-ui.js"></script>
-  <script type="text/javascript" src="js/planet.js"></script>
-  <script type="text/javascript" src="js/orbit.js"></script>
+  <script>
+    $(".goto_titanic").on("click", function() {
+      window.location.replace("titanic.html");
+    });
+  </script>
 </body>
 </html>

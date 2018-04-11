@@ -25,8 +25,8 @@ function g_force(x1, y1, m1, r1, x2, y2, m2, r2) {
   f_x = (delta_x > 0 ? - f_x : f_x)
   f_y = (delta_y > 0 ? - f_y : f_y)
 
-  f_x = (Math.abs(delta_x) < max_r ? f_x * ( 1 - (sign(delta_x) * delta_x / max_r) ) : f_x)
-  f_y = (Math.abs(delta_y) < max_r ? f_y * ( 1 - (sign(delta_y) * delta_y / max_r) ) : f_y)
+  f_x = (Math.abs(delta_x) < max_r ? 0 : f_x)
+  f_y = (Math.abs(delta_y) < max_r ? 0 : f_y)
 	return [ f_x, f_y ];
 }
 
