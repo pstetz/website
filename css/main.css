@@ -23,5 +23,6 @@
 .kaggle-div {
 	text-align: center;
 	float: left;
-	cursor: pointer;"
+	cursor: pointer;
+	height: 250px;
 }
