@@ -23,13 +23,46 @@
       </nav>
     </div>
     <div class="row">
-      <div class="col-xs-11 col-xs-offset-1">
-        <h2><u>Kaggle Projects</u></h2>
+      <div class="col-xs-11 col-xs-offset-1" >
+        <h2><u>Exploratory Data Analysis</u></h2>
 
         <div class="kaggle-div" onclick="window.location='https://www.kaggle.com/pstetz/comprehensive-look-at-the-2015-acs-estimate';">
           <h4>US Census Demographic Data</h4>
-          <img src="img/census.jpg" style="width:400px;">
+          <img src="img/census.jpg" style="height:200px;">
         </div>
+
+        <div class="kaggle-div" onclick="window.location='https://www.kaggle.com/pstetz/a-visual-look-at-mussel-watch';">
+          <h4>Mussel Watch Data</h4>
+          <img src="img/mussel.png" style="height:200px;">
+        </div>
+
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">  
+        <h2><u>Music to sheet music converter</u> (<a href="https://github.com/pstetz/Pitch-Perfect">GitHub</a>)</h2>
+        <img src="img/note_fft.png" style="width:400px; margin-left: 5%">
+        <p>A personal prjoect that's able to take a .wav music file and convert it into sheet music through the following steps</p>
+        <ol>
+          <li>Segmentation: determines when each note starts in the file</li>
+          <li>Filtering: cutting off low/high frequencies, determining whether two notes are a chord or quick sequential notes</li>
+          <li>Pitch Detection: the pitch can be detected through Fast Fourier Transform and mapped onto a certain note</li>
+          <li>Filtering: determining whether a frequency hit is a partial or a note, determining whether a frequency hit is an independent note or residual from a few secconds earlier</li>
+          <li>Duration detction: finally determining how long a note lasts and it's location on a measure</li>
+          <li>Saving to Music XML file: the information gathered is organized, formated, and saved into a music XML file.  NOTE: additional software is needed to view the sheet music XML.  One good (free) choice is <a href="https://musescore.org/en">MuseScore</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2><u>Introduction to Data Science</u> (<a href="resources.html">link</a>)</h2>
+        <p>I'm not seasoned enough to teach Data Science, but I can curate what I think are the most important resources for learning Data Science.  Hopefully this page keeps you and me organized as we learn more!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-11 col-xs-offset-1">
+        <h2><u>Kaggle Mini Projects</u></h2>
 
         <div class="kaggle-div" onclick="window.location='https://github.com/pstetz/Kaggle/tree/master/complete/shelter';">
           <h4>Shelter Animal Outcomes</h4>
@@ -55,28 +88,7 @@
           <h4>House Prices: Advanced Regression Techniques</h4>
           <img src="img/house.png" style="width:400px;">
         </div>
-      </div>
-    </div>
-    <br/>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">  
-        <h2><u>Music to sheet music converter</u> (<a href="https://github.com/pstetz/Pitch-Perfect">GitHub</a>)</h2>
-        <img src="img/note_fft.png" style="width:400px; margin-left: 5%">
-        <p>A personal prjoect that's able to take a .wav music file and convert it into sheet music through the following steps</p>
-        <ol>
-          <li>Segmentation: determines when each note starts in the file</li>
-          <li>Filtering: cutting off low/high frequencies, determining whether two notes are a chord or quick sequential notes</li>
-          <li>Pitch Detection: the pitch can be detected through Fast Fourier Transform and mapped onto a certain note</li>
-          <li>Filtering: determining whether a frequency hit is a partial or a note, determining whether a frequency hit is an independent note or residual from a few secconds earlier</li>
-          <li>Duration detction: finally determining how long a note lasts and it's location on a measure</li>
-          <li>Saving to Music XML file: the information gathered is organized, formated, and saved into a music XML file.  NOTE: additional software is needed to view the sheet music XML.  One good (free) choice is <a href="https://musescore.org/en">MuseScore</a></li>
-        </ol>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">
-        <h2><u>Introduction to Data Science</u> (<a href="resources.html">link</a>)</h2>
-        <p>I'm not seasoned enough to teach Data Science, but I can curate what I think are the most important resources for learning Data Science.  Hopefully this page keeps you and me organized as we learn more!</p>
+
       </div>
     </div>
     <div class="row">
