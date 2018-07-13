@@ -1,3 +1,4 @@
+/*Site Nav Bar*/
 .my-nav {
 	background:  #654321;
 	color: white;
@@ -11,6 +12,23 @@
 	color: lightblue;
 	margin: 0 3px;
 }
+
+/*Projects Nav Bar*/
+.project-nav {
+	background:  #665433;
+	color: white;
+	padding: 15px 3em;
+}
+.project-nav-items {
+	display: inline;
+	font-size: 14px;
+}
+.project-nav-items a {
+	color: pink;
+	margin: 0 3px;
+}
+
+/*Other*/
 .footer {
 	background-color: lightgray;
 	padding: 25px 0;
@@ -23,7 +41,6 @@
 .kaggle-div {
 	text-align: center;
 	float: left;
-	cursor: pointer;
 	height: 250px;
 	padding: 20px;
 }
