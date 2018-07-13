@@ -4,13 +4,8 @@
   <meta charset="utf-8">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <title>Patrick Stetz</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link href="jquery-ui.css" rel="stylesheet">
-  <style>
-    .goto_titanic{
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
 </head>
 <body>
   <div class="container" style="width:100%; padding: 0">
@@ -18,11 +13,20 @@
       <nav>
         <div class="row my-nav">
           <div class="col-xs-10 col-xs-offset-1">
-            <div class='my-nav-items'><a href="index.html">Home</a></div>
-            <div class='my-nav-items'><a href="about.html">About</a></div>
-            <div class='my-nav-items'><a href="contact.html">Contact</a></div>
-            <div class='my-nav-items'><a href="projects.html">Projects</a></div>
-            <div class='my-nav-items'><a href="extra.html">Extra</a></div>
+            <div class='my-nav-items'><a href="../index.html">Home</a></div>
+            <div class='my-nav-items'><a href="../about.html">About</a></div>
+            <div class='my-nav-items'><a href="../contact.html">Contact</a></div>
+            <div class='my-nav-items selected-nav'><a href="../projects.html">Projects</a></div>
+            <div class='my-nav-items'><a href="../extra.html">Extra</a></div>
+          </div>
+        </div>
+        <div class="row project-nav">
+          <div class="col-xs-12">
+            <div class='project-nav-items'><a href="../projects.html">All</a></div> | 
+            <div class='project-nav-items'><a href="census.html">2015 Census Estimate</a></div> | 
+            <div class='project-nav-items'><a href="mussel.html">Mussel Watch</a></div> | 
+            <div class='project-nav-items'><a href="pbs.html">PBS Newshour</a></div> | 
+            <div class='project-nav-items selected-nav'><a href="resources.html">Introduction to Data Science</a></div>
           </div>
         </div>
       </nav>
@@ -172,9 +176,9 @@
     </div>
   </div>
   <div class="footer text-center">
-    <a href="index.html">patrickstetz.com</a>
+    <a href="../index.html">patrickstetz.com</a>
   </div>
-  <script src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery-ui.js"></script>
 </body>
 </html>
