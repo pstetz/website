@@ -35,19 +35,49 @@
     <div class="col-xs-10 col-xs-offset-1">
       <div class="row">
         <h2>PBS Newshour - Data Mining and Analysis <a style="font-size: 16px" href="https://github.com/pstetz/PBS-Newshour">(Github)</a></h2>
+
+        <h4>Introduction:</h4>
+        <p class="small-width">Here is a summary of my work on PBS Newshour transcripts.  If you would like to see more analysis along with the data mining and preprocessing steps, please see <a href="https://github.com/pstetz/PBS-Newshour">my repo</a> on Github.</p>
+      </div>
+      <div class="row">
+        <h4>Data Mining:</h4>
+        <p class="small-width">The transcripts are taken from PBS Newshour's website.  There is no centralized location for each transcript, but PBS organizes every clip in its database.  And a news story clip tends to have a transcript accomadating it.</p>
+        <p class="small-width">The clips are organized very nicely with the following URL: "https://www.pbs.org/newshour/video/page/PAGE_NUMBER"</p>
+        <p class="small-width">As shown in Figure 1, there aren't many transcripts available before 2011.  However, 2011 and later we have many transcripts available to look at.</p>
+        <div class="col-xs-6 col-xs-offset-1">
+          <div id="num_transcripts" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
+          <div class="row" style="text-align: center;">
+            <p>Figure 1: The number of transcripts available on PBS.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <p>Using the</p>
       </div>
     	<div class="row">
         <div class="col-xs-6 col-xs-offset-1">
           <div id="speaker_words" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
+          <div class="row" style="text-align: center;">
+            <p>Figure 2: The number of articles appeared/words spoken of a individual.</p>
+          </div>
         </div>
 	  	</div>
+      <div class="row">
+        <p class="small-width">It's interesting to look at how the focus of politics changes over time.  For each month availble we can look through transcripts and count mentions of a topic.  Then we can plot these counts and see what topics are becoming increasingly important.  From figure 3 it looks like both racism and immigration are gaining a lot of air time.  However, they're no where close to the meteoric rise of Trump.</p>
+      </div>
 			<div class="row">
         <div class="col-xs-6 col-xs-offset-1">
           <div id="topic_popularity" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
+          <div class="row" style="text-align: center;">
+            <p>Figure 3: The popularity of a topic over time.</p>
+          </div>
         </div>
 			</div>
 		</div>
 	</div>
+  <div class="footer text-center">
+    <a href="../index.html">patrickstetz.com</a>
+  </div>
 	<script type="text/javascript" src="../js/projects/pbs.js"></script>
   <script src="../js/jquery.js"></script>
   <script type="text/javascript" src="../js/jquery-ui.js"></script>
