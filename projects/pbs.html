@@ -36,14 +36,17 @@
       <div class="row">
         <h2>PBS Newshour - Data Mining and Analysis <a style="font-size: 16px" href="https://github.com/pstetz/PBS-Newshour">(Github)</a></h2>
 
-        <h4>Introduction:</h4>
+        <h4>Introduction</h4>
         <p class="small-width">Here is a summary of my work on PBS Newshour transcripts.  If you would like to see more analysis along with the data mining and preprocessing steps, please see <a href="https://github.com/pstetz/PBS-Newshour">my repo</a> on Github.</p>
       </div>
       <div class="row">
-        <h4>Data Mining:</h4>
+        <h4>Data Mining</h4>
         <p class="small-width">The transcripts are taken from PBS Newshour's website.  There is no centralized location for each transcript, but PBS organizes every clip in its database.  And a news story clip tends to have a transcript accomadating it.</p>
         <p class="small-width">The clips are organized very nicely with the following URL: "https://www.pbs.org/newshour/video/page/PAGE_NUMBER"</p>
-        <p class="small-width">As shown in Figure 1, there aren't many transcripts available before 2011.  However, 2011 and later we have many transcripts available to look at.</p>
+      </div>
+      <div class="row">
+        <h4>Data overview</h4>
+        <p class="small-width">As shown in Figure 1, there aren't many transcripts available before 2011.  2011 and later we see around 180 transcripts a month.</p>
         <div class="col-xs-6 col-xs-offset-1">
           <div id="num_transcripts" style="width: 100%; height: 100%;" class="plotly-graph-div"></div>
           <div class="row" style="text-align: center;">
@@ -52,7 +55,8 @@
         </div>
       </div>
       <div class="row">
-        <p>Using the</p>
+        <h4>Total words spoken by person</h4>
+        <p class="small-width">Before doing any analysis, it's important to check that we have enough data to form meaningful conclusions.  We can see from figure 2 the number of words spoken by each famous person.  Besides Angela Merkel, it looks like we have plenty of data to work with!</p>
       </div>
     	<div class="row">
         <div class="col-xs-6 col-xs-offset-1">
@@ -63,6 +67,7 @@
         </div>
 	  	</div>
       <div class="row">
+        <h4>Topic Popularity</h4>
         <p class="small-width">It's interesting to look at how the focus of politics changes over time.  For each month availble we can look through transcripts and count mentions of a topic.  Then we can plot these counts and see what topics are becoming increasingly important.  From figure 3 it looks like both racism and immigration are gaining a lot of air time.  However, they're no where close to the meteoric rise of Trump.</p>
       </div>
 			<div class="row">
@@ -73,6 +78,11 @@
           </div>
         </div>
 			</div>
+
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p style="width: 60%">Thank you for viewing this summary, if you would like to see the complete, more extensive version, please see <a href="https://github.com/pstetz">my repo</a> on Github.</p>
+      </div>
 		</div>
 	</div>
   <div class="footer text-center">
