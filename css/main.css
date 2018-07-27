@@ -40,6 +40,9 @@
 .small-width {
 	width:60%;
 }
+.caption {
+	text-align: center;
+}
 .footer {
 	background-color: lightgray;
 	padding: 25px 0;
