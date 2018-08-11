@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <title>Patrick Stetz</title>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  
+  <!-- Plotly -->
+  <script type="text/javascript" src="../js/plotly.js"></script>
+
+  <!-- Vega -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.18.1"></script>
+
+</head>
+<body>
+  <div class="container" style="width:100%; padding: 0">
+    <div class="jumbotron" style="padding: 0">
+      <nav>
+        <div class="row my-nav">
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class='my-nav-items'><a href="../index.html">Home</a></div>
+            <div class='my-nav-items'><a href="../about.html">About</a></div>
+            <div class='my-nav-items'><a href="../contact.html">Contact</a></div>
+            <div class='my-nav-items selected-nav'><a href="../projects.html">Projects</a></div>
+            <div class='my-nav-items'><a href="../extra.html">Extra</a></div>
+          </div>
+        </div>
+        <div class="row project-nav">
+          <div class="col-xs-12">
+          	<div class='project-nav-items'><a href="../projects.html">All</a></div> | 
+            <div class='project-nav-items selected-nav'><a href="forest.html">Forest Cover Type</a></div> | 
+            <div class='project-nav-items'><a href="census.html">2015 Census Estimate</a></div> | 
+            <div class='project-nav-items'><a href="mussel.html">Mussel Watch</a></div> | 
+            <div class='project-nav-items'><a href="pbs.html">PBS Newshour</a></div> | 
+            <div class='project-nav-items'><a href="pitch-perfect.html">Pitch Perfect</a></div> | 
+            <div class='project-nav-items'><a href="resources.html">Introduction to Data Science and Engineering</a></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row">
+        <h2>Forest Cover Type - Kaggle Challenge</h2>
+
+        <h4>Introduction</h4>
+        <p class="small-width">Here is a summary of my work on the Forest Cover Type Kaggle challenge.  If you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
+
+        <p><strong>Text and explanations in progress, enjoy the plots in the meantime :)</strong></p>
+      </div>
+      
+      <div class="row">
+        <div id="train_test_size"></div>
+      </div>
+
+      <div class="row">
+        <div id="cover_type_split"></div>
+      </div>
+
+      <div class="row">
+        <div id="corr"></div>
+      </div>
+
+      <div class="row">
+        <div id="hydrology"></div>
+      </div>
+
+      <div class="row">
+        <div id="slope_elevation"></div>
+      </div>
+
+      <div class="row">
+        <div id="wilderness_area"></div>
+      </div>
+
+      <div class="row">
+        <div id="hillshade"></div>
+      </div>
+
+      <div class="row">
+        <div id="soil_type"></div>
+      </div>
+
+      <div class="row">
+        <div id="fire_roadways"></div>
+      </div>
+
+      <div class="row">
+        <div id="cover_type_preds"></div>
+      </div>
+
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p style="width: 60%">Thank you for viewing this summary, if you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
+      </div>
+		</div>
+	</div>
+  <div class="footer text-center">
+    <a href="../index.html">patrickstetz.com</a>
+  </div>
+	<script type="text/javascript" src="../js/projects/forest.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/fire_roadways.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/hydrology.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/slope_elevation.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/soil_type.js"></script>
+
+  <script src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery-ui.js"></script>
+
+  <script>
+    $( document ).ready(function() {
+      let actions = $( ".vega-actions-wrapper" );
+      if (actions) {
+        actions.remove()
+      }
+    })
+  </script>
+</body>
+</html>
