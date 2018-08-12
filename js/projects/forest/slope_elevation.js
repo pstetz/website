@@ -148,7 +148,7 @@ let slope_elevation = {
           }
         }
       ],
-      "title": "Slope Histogram"
+      "title": "Slope"
     },
     {
       "layer": [
@@ -297,7 +297,7 @@ let slope_elevation = {
           }
         }
       ],
-      "title": "Elevation Histogram"
+      "title": "Elevation"
     }
   ],
   "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"
