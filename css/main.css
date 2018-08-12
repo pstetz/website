@@ -40,6 +40,9 @@
 .small-width {
 	width:60%;
 }
+.subtitle-text {
+	font-size: 14px;
+}
 .caption {
 	text-align: center;
 }
