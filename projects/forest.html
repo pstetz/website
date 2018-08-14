@@ -45,73 +45,201 @@
     <div class="col-xs-10 col-xs-offset-1">
       <div class="row">
         <h2>Forest Cover Type - Kaggle Challenge</h2>
-        <p class="subtitle-text">Written: 11 August 2018 (<a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">Github</a>)</p>
+        <p class="subtitle-text">Written: August 2018 (<a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">Github</a>)</p>
 
         <h4>Introduction</h4>
         <p class="small-width">Here is a summary of my work on the Forest Cover Type Kaggle challenge.  If you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
-
-        <p><strong>Text and explanations in progress, enjoy the plots in the meantime :)</strong></p>
       </div>
-      
       <div class="row">
+        <h4>Background</h4>
+        <p>Kaggle introduces the challenges as follows:</p>
+        <blockquote class="normal-font"><p class="small-width">In this competition you are asked to predict the forest cover type (the predominant kind of tree cover) from strictly cartographic variables (as opposed to remotely sensed data). The actual forest cover type for a given 30 x 30 meter cell was determined from US Forest Service (USFS) Region 2 Resource Information System data. Independent variables were then derived from data obtained from the US Geological Survey and USFS. The data is in raw form (not scaled) and contains binary columns of data for qualitative independent variables such as wilderness areas and soil type.</p>
+        <p class="small-width">This study area includes four wilderness areas located in the Roosevelt National Forest of northern Colorado. These areas represent forests with minimal human-caused disturbances, so that existing forest cover types are more a result of ecological processes rather than forest management practices.</p>
+        <footer><a href="https://www.kaggle.com/c/forest-cover-type-kernels-only">source</a></footer>
+        </blockquote>
+      </div>
+
+      <div class="row">
+        <h4>Variable overview</h4>
+        <table class="table table-hover">
+          <thead><tr>
+            <th>Name</th><th>Measurement</th><th>Description</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Elevation</td><td>meters</td><td>Elevation in meters</td>
+            </tr>
+            <tr>
+              <td>Aspect</td><td>azimuth</td><td>Aspect in degrees azimuth</td>
+            </tr>
+            <tr>
+              <td>Slope</td><td>degrees</td><td>Slope in degrees</td>
+            </tr>
+            <tr>
+              <td>Vertical Distance To Hydrology</td><td>meters</td><td>Vertical Distance to nearest surface water features</td>
+            </tr>
+            <tr>
+              <td>Horizontal Distance To Hydrology</td><td>meters</td><td>Horizontal Distance to nearest surface water features</td>
+            </tr>
+            <tr>
+              <td>Horizontal Distance To Roadways</td><td>meters</td><td>Horizontal Distance to nearest roadway</td>
+            </tr>
+            <tr>
+              <td>Horizontal Distance To Fire Points</td><td>meters</td><td>Horizontal Distance to nearest wildfire ignition points</td>
+            </tr>
+            <tr>
+              <td>Hillshade 9am</td><td>0 to 255 index</td><td>Hillshade index at 9am, summer solstice</td>
+            </tr>
+            <tr>
+              <td>Hillshade Noon</td><td>0 to 255 index</td><td>Hillshade index at noon, summer soltice</td>
+            </tr>
+            <tr>
+              <td>Hillshade 3pm</td><td>0 to 255 index</td><td>Hillshade index at 3pm, summer solstice</td>
+            </tr>
+            <tr>
+              <td>Wilderness Area (4 binary columns)</td><td>0 (absence) or 1 (presence)</td><td>Wilderness area designation</td>
+            </tr>
+            <tr>
+              <td>Soil Type (40 binary columns)</td><td>0 (absence) or 1 (presence)</td><td>Soil Type designation</td>
+            </tr>
+            <tr>
+              <td>Cover Type</td><td>Classes 1 to 7</td><td>Forest Cover Type designation - Response Variable</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>Target: Cover Type</h2>
+        <p class="small-width">The variable we are trying to predict in the Test data is the variable "cover_type".  The cover types are labeled as following:</p>
+        <ol>
+          <li>Spruce/Fir</li>
+          <li>Lodgepole Pine</li>
+          <li>Ponderosa Pine</li>
+          <li>Cottonwood/Willow</li>
+          <li>Aspen</li>
+          <li>Douglas-fir</li>
+          <li>Krummholz</li>
+        </ol>
+        <p class="small-width">Furthermore, as we can see below, the cover type is perfectly balanced within the training data</p>
+        <div class="col-xs-6">
+          <div id="cover_type_vc_train"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Datasets</h2>
+        <p class="small-width">As this is a classification challenge, the data is split between train data (data with target) and test data (data without target).  As a challenge, the test data is over 35x as big as the train data!</p>
         <div class="col-xs-6">
           <div id="train_test_size"></div>
         </div>
       </div>
 
       <div class="row">
+        <h4>Correlation Plot</h2>
         <div class="col-xs-6">
-          <div id="cover_type_split"></div>
+          <div id="corr"></div>
         </div>
       </div>
 
       <div class="row">
-        <div id="corr"></div>
-      </div>
-
-      <div class="row">
-        <div id="hydrology"></div>
-      </div>
-
-      <div class="row">
+        <h4></h4>
         <div id="slope_elevation"></div>
       </div>
 
       <div class="row">
-        <div id="wilderness_area"></div>
+        <h4>Hydrology</h4>
+        <p class="small-width">As stated before, the hydrology variables indicate the "distance to nearest surface water features".  It's a bit difficult to get any information out of this.  However it does appear that Krummholtz and Douglas-Fir are the furthest away from water.</p>
+        <p class="small-width">The total distance from water, given by [horizontal distance]^2 + [vertical distance]^2 should be added during feature engineering.</p>
+        <div id="hydrology"></div>
       </div>
 
       <div class="row">
-        <div class="col-xs-8">
-          <div id="hillshade"></div>
+        <h4>Wilderness Area</h4>
+        <p></p>
+        <div class="col-xs-6">
+          <div id="wilderness_area"></div>
         </div>
       </div>
 
       <div class="row">
+        <h4>Hillshade</h4>
+        <p class="small-width">There seems to be two latent variables that are given by the three hillshade values.  The relationship definitely looks 2 dimensional and forms a plane.</p>
+        <div class="col-xs-8">
+          <div id="hillshade_3d"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Shade, Slope, and Elevation</h4>
+        <p class="small-width">Elevation seems to be a very important feature to look at when deciding the cover type.  In addition, hillshade and slope seem to have a planar boundary that cuts off values.</p>
+        <div class="col-xs-8">
+          <div id="elevation_3d"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Soil Type</h4>
+        <p class="small-width">There 40 different soil types in this dataset labeled numerically as opposed to the actual name.  It's hard to get an understanding of this variable without knowing what each number refers to.  However we can notice that the train data and test data look very different.  This might lead us to believe that the test data is unbalanced with respect to the target variable unlike the train data.  This guess will turn out to be correct.</p>
         <div id="soil_type"></div>
       </div>
 
       <div class="row">
-        <div class="col-xs-8">
+        <h4>Fire Points and Roadways</h4>
+        <div class="col-xs-6">
           <div id="fire_roadways"></div>
         </div>
       </div>
 
       <div class="row">
+        <h2>Density Plots</h2>
+        <p class="small-width">Density plots are an excellent resource for viewing how a variable will change for a given cover type</p>
+      </div>
+      <div class="row">
+        <h4>Elevation</h4>
+        <p class="small-width">Elevation is perhaps the strongest variable.  Looking below it does a great job separating the different forest covers.</p>
+        <div class="col-xs-8">
+          <div id="elevation_dist"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Positional variables</h4>
+        <p class="small-width">These variables indicate the position relative to roadways, fire points, and hydrology.</p>
+        <div class="col-xs-10">
+          <div id="hor_ver_dist"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Remaining variables</h4>
+        <p class="small-width">Finally, here are density plots for the remaining variables.</p>
+        <div class="col-xs-10">
+          <div id="misc_dist"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Modeling</h4>
+        <p class="small-width">An ensemble classifier is constructed to predict the cover types in the test dataset.  XGBoost, LGBoost, Ada Boost, Random Forests, and Extra Trees models are trained with predictions stored in a dataframe.  These predictions are then fed into a SVC model that gives a final prediction based on the individual predictions of each model.  The classifier scores around 81% accuracy on Kaggle's public leaderboard.</p>
         <div class="col-xs-6">
           <img src="../img/forest_model.png" style="width:400px; margin-left: 5%">
         </div>
       </div>
 
       <div class="row">
+        <h4>Prediction distribution</h4>
+        <p class="small-width">Interestingly, the predictions are highly inbalanced unlike the training data which is perfectly balanced.  The distribution below is not completely correct, but it's good enough with 85% accuracy.</p>
         <div class="col-xs-6">
-          <div id="cover_type_preds"></div>
+          <div id="cover_type_vc_test"></div>
         </div>
       </div>
 
       <div class="row">
         <h4>Conclusion</h4>
-        <p style="width: 60%">Thank you for viewing this summary, if you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
+        <p style="width: 60%">Thank you for viewing this, if you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
+      </div>
+      <div class="row">
+        <h4>Acknowledgements</h4>
+        <p class="small-width">This dataset is provided by Jock A. Blackard and Colorado State University.  A full citation is given below.</p>
+        <p class="small-width normal-font"><i>Bache, K. & Lichman, M. (2013). UCI Machine Learning Repository. Irvine, CA: University of California, School of Information and Computer Science</i></p>
       </div>
 		</div>
 	</div>

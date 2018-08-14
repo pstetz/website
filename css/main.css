@@ -1,3 +1,10 @@
+body {
+	font-size: 14px;
+}
+.normal-font {
+	font-size: 14px;
+}
+
 /*Site Nav Bar*/
 .my-nav {
 	background:  #654321;
