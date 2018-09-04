@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <title>Patrick Stetz</title>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  
+  <!-- Plotly -->
+  <script type="text/javascript" src="../js/plotly.js"></script>
+
+  <!-- Vega -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.18.1"></script>
+
+</head>
+<body>
+  <div class="container" style="width:100%; padding: 0">
+    <div class="jumbotron" style="padding: 0">
+      <nav>
+        <div class="row my-nav">
+          <div class="col-xs-10 col-xs-offset-1">
+            <div class='my-nav-items'><a href="../index.html">Home</a></div>
+            <div class='my-nav-items'><a href="../about.html">About</a></div>
+            <div class='my-nav-items'><a href="../contact.html">Contact</a></div>
+            <div class='my-nav-items selected-nav'><a href="../projects.html">Projects</a></div>
+            <div class='my-nav-items'><a href="../extra.html">Extra</a></div>
+          </div>
+        </div>
+        <div class="row project-nav">
+          <div class="col-xs-12">
+          	<div class='project-nav-items'><a href="../projects.html">All</a></div> | 
+            <div class='project-nav-items selected-nav'><a href="forest.html">Forest Cover Type</a></div> | 
+            <div class='project-nav-items'><a href="census.html">2015 Census Estimate</a></div> | 
+            <div class='project-nav-items'><a href="mussel.html">Mussel Watch</a></div> | 
+            <div class='project-nav-items'><a href="pbs.html">PBS Newshour</a></div> | 
+            <div class='project-nav-items'><a href="pitch-perfect.html">Pitch Perfect</a></div> | 
+            <div class='project-nav-items'><a href="resources.html">Introduction to Data Science and Engineering</a></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row">
+        <h2>Costa Rican Household Poverty Level Prediction</h2>
+        <p class="subtitle-text">Written: August 2018 (<a href="">Github</a>)</p>
+
+        <h4>Introduction</h4>
+        <p class="small-width">Here is a summary of my work on the Costa Rica Poverty Level Kaggle challenge.  If you would like to see my code, please see <a href="https://github.com/pstetz/Kaggle/tree/master/complete/Forest-Cover">my repo</a> on Github.</p>
+      </div>
+      <div class="row">
+        <h4>Background</h4>
+        <p>Kaggle introduces the challenges as follows:</p>
+        <blockquote class="normal-font">
+          <p class="small-width">The Inter-American Development Bank is asking the Kaggle community for help with income qualification for some of the world's poorest families. Are you up for the challenge?</p>
+          <p class="small-width">Here's the backstory: Many social programs have a hard time making sure the right people are given enough aid. It’s especially tricky when a program focuses on the poorest segment of the population. The world’s poorest typically can’t provide the necessary income and expense records to prove that they qualify.</p>
+          <p class="small-width">In Latin America, one popular method uses an algorithm to verify income qualification. It’s called the Proxy Means Test (or PMT). With PMT, agencies use a model that considers a family’s observable household attributes like the material of their walls and ceiling, or the assets found in the home to classify them and predict their level of need.</p>
+          <p class="small-width">While this is an improvement, accuracy remains a problem as the region’s population grows and poverty declines.</p>
+          <p class="small-width">To improve on PMT, the IDB (the largest source of development financing for Latin America and the Caribbean) has turned to the Kaggle community. They believe that new methods beyond traditional econometrics, based on a dataset of Costa Rican household characteristics, might help improve PMT’s performance.</p>
+          <p class="small-width">Beyond Costa Rica, many countries face this same problem of inaccurately assessing social need. If Kagglers can generate an improvement, the new algorithm could be implemented in other countries around the world.</p>
+        <footer><a href="https://www.kaggle.com/c/costa-rican-household-poverty-prediction">source</a></footer>
+        </blockquote>
+      </div>
+
+      <div class="row">
+        <h4>Variable overview</h4>
+        <table class="table table-hover">
+          <thead><tr>
+            <th>Name</th><th>Description</th>
+          </tr></thead>
+          <tbody class="costa-rica-table">
+            <tr><td>v2a1</td><td>Monthly rent payment</td></tr>
+            <tr><td>hacdor</td><td>=1 Overcrowding by bedrooms</td></tr>
+            <tr><td>rooms</td><td>number of all rooms in the house</td></tr>
+            <tr><td>hacapo</td><td>=1 Overcrowding by rooms</td></tr>
+            <tr><td>v14a</td><td>=1 has bathroom in the household</td></tr>
+            <tr><td>refrig</td><td>=1 if the household has refrigerator</td></tr>
+            <tr><td>v18q</td><td>owns a tablet</td></tr>
+            <tr><td>v18q1</td><td>number of tablets household owns</td></tr>
+            <tr><td>r4h1</td><td>Males younger than 12 years of age</td></tr>
+            <tr><td>r4h2</td><td>Males 12 years of age and older</td></tr>
+            <tr><td>r4h3</td><td>Total males in the household</td></tr>
+            <tr><td>r4m1</td><td>Females younger than 12 years of age</td></tr>
+            <tr><td>r4m2</td><td>Females 12 years of age and older</td></tr>
+            <tr><td>r4m3</td><td>Total females in the household</td></tr>
+            <tr><td>r4t1</td><td>persons younger than 12 years of age</td></tr>
+            <tr><td>r4t2</td><td>persons 12 years of age and older</td></tr>
+            <tr><td>r4t3</td><td>Total persons in the household</td></tr>
+            <tr><td>tamhog</td><td>size of the household</td></tr>
+            <tr><td>tamviv</td><td>number of persons living in the household</td></tr>
+            <tr><td>escolari</td><td>years of schooling</td></tr>
+            <tr><td>rez_esc</td><td>Years behind in school</td></tr>
+            <tr><td>hhsize</td><td>household size</td></tr>
+            <tr><td>paredblolad</td><td>=1 if predominant material on the outside wall is block or brick</td></tr>
+            <tr><td>paredzocalo</td><td>"=1 if predominant material on the outside wall is socket (wood  zinc or absbesto"</td></tr>
+            <tr><td>paredpreb</td><td>=1 if predominant material on the outside wall is prefabricated or cement</td></tr>
+            <tr><td>pareddes</td><td>=1 if predominant material on the outside wall is waste material</td></tr>
+            <tr><td>paredmad</td><td>=1 if predominant material on the outside wall is wood</td></tr>
+            <tr><td>paredzinc</td><td>=1 if predominant material on the outside wall is zink</td></tr>
+            <tr><td>paredfibras</td><td>=1 if predominant material on the outside wall is natural fibers</td></tr>
+            <tr><td>paredother</td><td>=1 if predominant material on the outside wall is other</td></tr>
+            <tr><td>pisomoscer</td><td>"=1 if predominant material on the floor is mosaic  ceramic  terrazo"</td></tr>
+            <tr><td>pisocemento</td><td>=1 if predominant material on the floor is cement</td></tr>
+            <tr><td>pisoother</td><td>=1 if predominant material on the floor is other</td></tr>
+            <tr><td>pisonatur</td><td>=1 if predominant material on the floor is  natural material</td></tr>
+            <tr><td>pisonotiene</td><td>=1 if no floor at the household</td></tr>
+            <tr><td>pisomadera</td><td>=1 if predominant material on the floor is wood</td></tr>
+            <tr><td>techozinc</td><td>=1 if predominant material on the roof is metal foil or zink</td></tr>
+            <tr><td>techoentrepiso</td><td>"=1 if predominant material on the roof is fiber cement  mezzanine "</td></tr>
+            <tr><td>techocane</td><td>=1 if predominant material on the roof is natural fibers</td></tr>
+            <tr><td>techootro</td><td>=1 if predominant material on the roof is other</td></tr>
+            <tr><td>cielorazo</td><td>=1 if the house has ceiling</td></tr>
+            <tr><td>abastaguadentro</td><td>=1 if water provision inside the dwelling</td></tr>
+            <tr><td>abastaguafuera</td><td>=1 if water provision outside the dwelling</td></tr>
+            <tr><td>abastaguano</td><td>=1 if no water provision</td></tr>
+            <tr><td>public</td><td>"=1 electricity from CNFL  ICE  ESPH/JASEC"</td></tr>
+            <tr><td>planpri</td><td>=1 electricity from private plant</td></tr>
+            <tr><td>noelec</td><td>=1 no electricity in the dwelling</td></tr>
+            <tr><td>coopele</td><td>=1 electricity from cooperative</td></tr>
+            <tr><td>sanitario1</td><td>=1 no toilet in the dwelling</td></tr>
+            <tr><td>sanitario2</td><td>=1 toilet connected to sewer or cesspool</td></tr>
+            <tr><td>sanitario3</td><td>=1 toilet connected to  septic tank</td></tr>
+            <tr><td>sanitario5</td><td>=1 toilet connected to black hole or letrine</td></tr>
+            <tr><td>sanitario6</td><td>=1 toilet connected to other system</td></tr>
+            <tr><td>energcocinar1</td><td>=1 no main source of energy used for cooking (no kitchen)</td></tr>
+            <tr><td>energcocinar2</td><td>=1 main source of energy used for cooking electricity</td></tr>
+            <tr><td>energcocinar3</td><td>=1 main source of energy used for cooking gas</td></tr>
+            <tr><td>energcocinar4</td><td>=1 main source of energy used for cooking wood charcoal</td></tr>
+            <tr><td>elimbasu1</td><td>=1 if rubbish disposal mainly by tanker truck</td></tr>
+            <tr><td>elimbasu2</td><td>=1 if rubbish disposal mainly by botan hollow or buried</td></tr>
+            <tr><td>elimbasu3</td><td>=1 if rubbish disposal mainly by burning</td></tr>
+            <tr><td>elimbasu4</td><td>=1 if rubbish disposal mainly by throwing in an unoccupied space</td></tr>
+            <tr><td>elimbasu5</td><td>"=1 if rubbish disposal mainly by throwing in river  creek or sea"</td></tr>
+            <tr><td>elimbasu6</td><td>=1 if rubbish disposal mainly other</td></tr>
+            <tr><td>epared1</td><td>=1 if walls are bad</td></tr>
+            <tr><td>epared2</td><td>=1 if walls are regular</td></tr>
+            <tr><td>epared3</td><td>=1 if walls are good</td></tr>
+            <tr><td>etecho1</td><td>=1 if roof are bad</td></tr>
+            <tr><td>etecho2</td><td>=1 if roof are regular</td></tr>
+            <tr><td>etecho3</td><td>=1 if roof are good</td></tr>
+            <tr><td>eviv1</td><td>=1 if floor are bad</td></tr>
+            <tr><td>eviv2</td><td>=1 if floor are regular</td></tr>
+            <tr><td>eviv3</td><td>=1 if floor are good</td></tr>
+            <tr><td>dis</td><td>=1 if disable person</td></tr>
+            <tr><td>male</td><td>=1 if male</td></tr>
+            <tr><td>female</td><td>=1 if female</td></tr>
+            <tr><td>estadocivil1</td><td>=1 if less than 10 years old</td></tr>
+            <tr><td>estadocivil2</td><td>=1 if free or coupled uunion</td></tr>
+            <tr><td>estadocivil3</td><td>=1 if married</td></tr>
+            <tr><td>estadocivil4</td><td>=1 if divorced</td></tr>
+            <tr><td>estadocivil5</td><td>=1 if separated</td></tr>
+            <tr><td>estadocivil6</td><td>=1 if widow/er</td></tr>
+            <tr><td>estadocivil7</td><td>=1 if single</td></tr>
+            <tr><td>parentesco1</td><td>=1 if household head</td></tr>
+            <tr><td>parentesco2</td><td>=1 if spouse/partner</td></tr>
+            <tr><td>parentesco3</td><td>=1 if son/doughter</td></tr>
+            <tr><td>parentesco4</td><td>=1 if stepson/doughter</td></tr>
+            <tr><td>parentesco5</td><td>=1 if son/doughter in law</td></tr>
+            <tr><td>parentesco6</td><td>=1 if grandson/doughter</td></tr>
+            <tr><td>parentesco7</td><td>=1 if mother/father</td></tr>
+            <tr><td>parentesco8</td><td>=1 if father/mother in law</td></tr>
+            <tr><td>parentesco9</td><td>=1 if brother/sister</td></tr>
+            <tr><td>parentesco10</td><td>=1 if brother/sister in law</td></tr>
+            <tr><td>parentesco11</td><td>=1 if other family member</td></tr>
+            <tr><td>parentesco12</td><td>=1 if other non family member</td></tr>
+            <tr><td>idhogar</td><td>Household level identifier</td></tr>
+            <tr><td>hogar_nin</td><td>Number of children 0 to 19 in household</td></tr>
+            <tr><td>hogar_adul</td><td>Number of adults in household</td></tr>
+            <tr><td>hogar_mayor</td><td># of individuals 65+ in the household</td></tr>
+            <tr><td>hogar_total</td><td># of total individuals in the household</td></tr>
+            <tr><td>dependency</td><td>Dependency rate calculated = (number of members of the household younger than 19 or older than 64)/(number of member of household between 19 and 64)</td></tr>
+            <tr><td>edjefe</td><td>years of education of male head of household based on the interaction of escolari (years of education) head of household and gender yes=1 and no=0</td></tr>
+            <tr><td>edjefa</td><td>years of education of female head of household based on the interaction of escolari (years of education) head of household and gender yes=1 and no=0</td></tr>
+            <tr><td>meaneduc</td><td>average years of education for adults (18+)</td></tr>
+            <tr><td>instlevel1</td><td>=1 no level of education</td></tr>
+            <tr><td>instlevel2</td><td>=1 incomplete primary</td></tr>
+            <tr><td>instlevel3</td><td>=1 complete primary</td></tr>
+            <tr><td>instlevel4</td><td>=1 incomplete academic secondary level</td></tr>
+            <tr><td>instlevel5</td><td>=1 complete academic secondary level</td></tr>
+            <tr><td>instlevel6</td><td>=1 incomplete technical secondary level</td></tr>
+            <tr><td>instlevel7</td><td>=1 complete technical secondary level</td></tr>
+            <tr><td>instlevel8</td><td>=1 undergraduate and higher education</td></tr>
+            <tr><td>instlevel9</td><td>=1 postgraduate higher education</td></tr>
+            <tr><td>bedrooms</td><td>number of bedrooms</td></tr>
+            <tr><td>overcrowding</td><td># persons per room</td></tr>
+            <tr><td>tipovivi1</td><td>=1 own and fully paid house</td></tr>
+            <tr><td>tipovivi2</td><td>"=1 own  paying in installments"</td></tr>
+            <tr><td>tipovivi3</td><td>=1 rented</td></tr>
+            <tr><td>tipovivi4</td><td>=1 precarious</td></tr>
+            <tr><td>tipovivi5</td><td>"=1 other(assigned  borrowed)"</td></tr>
+            <tr><td>computer</td><td>=1 if the household has notebook or desktop computer</td></tr>
+            <tr><td>television</td><td>=1 if the household has TV</td></tr>
+            <tr><td>mobilephone</td><td>=1 if mobile phone</td></tr>
+            <tr><td>qmobilephone</td><td># of mobile phones</td></tr>
+            <tr><td>lugar1</td><td>=1 region Central</td></tr>
+            <tr><td>lugar2</td><td>=1 region Chorotega</td></tr>
+            <tr><td>lugar3</td><td>=1 region PacÃƒÂ­fico central</td></tr>
+            <tr><td>lugar4</td><td>=1 region Brunca</td></tr>
+            <tr><td>lugar5</td><td>=1 region Huetar AtlÃƒÂ¡ntica</td></tr>
+            <tr><td>lugar6</td><td>=1 region Huetar Norte</td></tr>
+            <tr><td>area1</td><td>=1 zona urbana</td></tr>
+            <tr><td>area2</td><td>=2 zona rural</td></tr>
+            <tr><td>age</td><td>Age in years</td></tr>
+            <tr><td>SQBescolari</td><td>escolari squared</td></tr>
+            <tr><td>SQBage</td><td>age squared</td></tr>
+            <tr><td>SQBhogar_total</td><td>hogar_total squared</td></tr>
+            <tr><td>SQBedjefe</td><td>edjefe squared</td></tr>
+            <tr><td>SQBhogar_nin</td><td>hogar_nin squared</td></tr>
+            <tr><td>SQBovercrowding</td><td>overcrowding squared</td></tr>
+            <tr><td>SQBdependency</td><td>dependency squared</td></tr>
+            <tr><td>SQBmeaned</td><td>square of the mean years of education of adults (>=18) in the household</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+      <div class="row">
+        <h4>Conclusion</h4>
+        <p style="width: 60%">Thank you for viewing this, if you would like to see my code, please see <a href="">my repo</a> on Github.</p>
+      </div>
+      <div class="row">
+        <h4>Acknowledgements</h4>
+        <p class="small-width">This dataset is provided by Jock A. Blackard and Colorado State University.  A full citation is given below.</p>
+        <p class="small-width normal-font"><i>Bache, K. & Lichman, M. (2013). UCI Machine Learning Repository. Irvine, CA: University of California, School of Information and Computer Science</i></p>
+      </div>
+		</div>
+	</div>
+  <div class="footer text-center">
+    <a href="../index.html">patrickstetz.com</a>
+  </div>
+	<script type="text/javascript" src="../js/projects/forest.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/fire_roadways.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/hydrology.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/slope_elevation.js"></script>
+  <script type="text/javascript" src="../js/projects/forest/soil_type.js"></script>
+
+  <script src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery-ui.js"></script>
+
+  <script>
+    $( document ).ready(function() {
+      let actions = $( ".vega-actions-wrapper" );
+      if (actions) {
+        actions.remove()
+      }
+    })
+  </script>
+</body>
+</html>

@@ -5,6 +5,11 @@ body {
 	font-size: 14px;
 }
 
+.costa-rica-table tr td {
+	height: 15px;
+	font-size: 10px;
+}
+
 /*Site Nav Bar*/
 .my-nav {
 	background:  #654321;
