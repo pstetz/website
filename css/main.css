@@ -46,6 +46,10 @@ body {
 }
 
 /*Other*/
+.logo {
+	display: inline-block;
+	text-align: center;
+}
 .large-font {
 	font-size: 18px
 }
