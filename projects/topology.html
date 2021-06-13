@@ -65,6 +65,10 @@
         <h2>2.) Fermat's Last Theorem</h2>
         <p>Another way of thinking about Fermat's Last Theorem is that you can use two N-cubes like Legos to form another N-cube.</p>
         <p>This can be done by keeping one of the cubes intact and rearranging the bits of the other to form the final cube.  Figure 2 probably expresses this better than any words.</p>
+        <p>So given an N-cube, we can think of how to add layers to create another, bigger N-cube.  Well if we want a shell that is \( d \) thick, then we need a (n-1)-orthotope that is d thick for each possible section. The unique possibilities are removing one axis, so there are N many of them.  This by itself adds \( N a^{(N-1)} d \) "units".  However (n-1)-othotopes by themselves won't create the shell we want (think of 2-D case, we need a corner piece too), we need to add (n-2) othotopes, (n-3) othotopes, and so on.  There will be \( N \choose i \) many of them where \( i \) is the number of axes removed. Including these different dimensional orthotopes we do get a perfect shell and have a new N-cube. Summing up the contributions from the orthotopes gives the series \[ \sum_{i=1}^{N} {N \choose i} a^{(N - i)} d^{i} \]
+        <p>Therefore assuming a shell is possible to construct, there's the following relation between our starting N-cube, it's shell, and the bigger N-cube. \[ a^N + \sum_{i=1}^{N} {N \choose i} a^{(N -i)} d^{i} = c^N \]</p>
+        <p>Fermat's Last Theorem says that if \( N \gt 2 \), then there are no integers \( a, d, c \) that solve the above equation</p>
+        <p>Going back to 2D, the above equations gives \( a^2 + 2 a d + d^2  = c^2\). We can see that when \( a=4 \) and \( d=1 \), we get \( 25 = c^2 \).  Since 25 is a perfect root, it means adding one layer to a square with length \( a \), will create another square with length \( c = a + d \)</p>
       </div>
 
       <div class="row">
@@ -72,22 +76,38 @@
         <h4>Introduction</h4>
         <div class="col-xs-8">
           <p>Note: if the following comes off as intuitive and Newtonian to you, then you are very rightly suspicious that it is wrong!  The ideas here conflict with the description of the universe given by General Relativity.  In the words of <a href="https://arxiv.org/abs/astro-ph/0310808">T. Davis and C. Lineweaver</a>: "We can observe galaxies that have, and always have had, recession velocities greater than the speed of light".  This kind of thinking can lead you astray!</p>
-          <p>We all learned at our mother's knee that the universe is expanding <u>and</u> that this expansion is accelatering.</p>
-          <p>Astronomers describe this mathematically in the form of Hubble's law \( v = H_0 D \) </p>
+          <p>There's some nuance that would be good to mention.  First of all how do you measure speed if you're far away?  You can't, especially if the geometry isn't flat.</p>
+          <p>We all learned at our mother's knee that the universe is expanding <u>and</u> that this expansion is accelatering. The center of the </p>
+          <p>Astronomers describe this mathematically in the form of Hubble's law \( v = H_0 D \).  "v" and "D" are of course velocity and distance respectively. \( H_0 ) is Hubble's constant which actually isn't that constant.  First of all there was the inflationary period at the beginning of universe, second radiation and dust that affect the expansion rate too, but observationally data is also pointing towards the vacuum energy appearing different at greater distances (see <a href="https://www.scientificamerican.com/article/hubble-tension-headache-clashing-measurements-make-the-universes-expansion-a-lingering-mystery/">Hubble Tension</a>). Let's ignore all this and assume Hubble's law is ok</p>
         </div>
         <div class="col-xs-4">
           <img src="../img/universe_expansion.gif" width=300\>
         </div>
-        \[ \sum^{n}_{i=1} t_i = \frac{1}{H_0} ln(n + 1) \]
-        \[ t_i - t_j = \frac{i (j + 1)}{j (i + 1)} \]
-        \[ d_n = \frac{d_0}{n + 1} \]
-        \[ t_n = \frac{1}{H_0} ln(\frac{d_0}{d_0 - d_n}) = \frac{1}{H_0} ln(\frac{n + 1}{n}) \]
-        \[ d(t) = d + \int^t_0 H_0 d(t') \, dt' \]
-        \[ p(t) = d - \int^t_0 c - H_0 p(t') \, dt' \]
+        <div class="col-xs-12">
+          <p id="footnote_1">
+          One of my favorite examples of this is the "prediction" of black holes by Newtonian gravity.  The escape velocity given by Newton is \( v_e = \sqrt{\frac{2 G M}{r}} \).  Natively, you can set \( v_e = c \), which leads to the Schwarzschild radius \( r_s = \frac{2 G M}{c^2}  \).  While giving the right answer, this logic is wrong and overly simplified.  The argument is just as sound as \( \frac{64}{16} = \frac{\cancel{6}4}{1 \cancel{6}} = \frac{4}{1} = 4 \).  For instance [paraphrased from S. Carroll.  Spacetime and Geometry], the escape velocity equation only mentions the <u>initial</u> velocity, but blacks holes are inescapeable from arbitrary timelike curves.
+          </p>
+        </div>
+        <div class="col-xs-12">
+          <h4>One way communication</h4>
+          <p>Let's say there's an alien distance "a" away from us.  Using Hubble's law we can calculate how far away it is some time, "t", later. \[ a(t) = a + \int^t_0 v \, dt' \rightarrow a + \int^t_0 H_0 d(t') \, dt' \]</p>
+          <p>Slightly trickier, let's find the formula for an inbound light ray (something traveling at speed "c") that starts distance "d" away.  We'll call the light's position "p". The light is moving toward us, but space is pushing the light away from us so we get \[ p(t) = d - \int^t_0 (c - v) \, dt' \rightarrow d - \int^t_0 (c - H_0 p(t')) \, dt' \]</p>
+          <p>So speaking loosely, the lightrays "speed" is \( \frac{dp}{dt} = c - H_0 p(t) \).  This means that if the initial distance is farther than some certain amount, \( p(t=0) = \frac{c}{H_0} \), we will never see the lightray.  If it's less then this amount then \( \frac{dp}{dt} \) will be positive and the lightray will approach, albeit slowly.</p>
+          <p>The above are first order differential equations that we can solve. \[ a(t) = a(0) e^{H_0 t} \] \[ p(t) = (p(0) - \frac{c}{H_0}) e^{H_0 t} + \frac{c}{H_0} \]</p>
+          <h4>Extending communication</h4>
+          <p>As mentioned before, for us to recieve a message from an alien then need to be within \( \frac{c}{H_0} \).  However ideally we want to send a message back!  That means that when we recieve the message, the alien needs to be within \( \frac{c}{H_0} \), which means if the message took \( t_0 \) to get to us, then the alien must start out within \(  \)
+          <p>Hopefully you get the idea from here. If we generalize and try to calculate \( t_i \) which is the time it takes for light to reach us from distance \( d_i \) away. \( i \) specifying how many signal communications are possible. So anything past \( d_0 \equiv \frac{c}{H_0} \) will never reach us, if it's between \( d_0 \) and \( d_1 \), it will reach us once, etc.
+            \[ d_n = \frac{d_0}{n + 1} \]
+            \[ t_n = \frac{1}{H_0} ln(\frac{d_0}{d_0 - d_n}) = \frac{1}{H_0} ln(\frac{n + 1}{n}) \]
+          </p>
+          <h4>Interesting properties</h4>
+          <p>Working with these equations are pretty fun and give simple solutions to quantities we might care about.
+            \[ \sum^{n}_{i=1} t_i = \frac{1}{H_0} ln(n + 1) \]
+            \[ t_i - t_j = \frac{1}{H_0} ln( \frac{i (j + 1)}{j (i + 1)}) \]
+          </p>
+          <p>The equations are fairly robust as well. We can build a clock that measures time by seeing how often light bounces between two mirrors separated a distance apart (much like the one Einstein used in Special Relativity). Somewhat surprisingly, it doesn't matter the distance apart!  A clock with mirrors \( d \) apart will match one with mirrors \( \frac{d}{2} \) apart!</p>
+        </div>
 
-        <p id="footnote_1">
-        One of my favorite examples of this is the "prediction" of black holes by Newtonian gravity.  The escape velocity given by Newton is \( v_e = \sqrt{\frac{2 G M}{r}} \).  Natively, you can set \( v_e = c \), which leads to the Schwarzschild radius \( r_s = \frac{2 G M}{c^2}  \).  While giving the right answer, this logic is wrong and overly simplified.  The argument is just as sound as \( \frac{64}{16} = \frac{\cancel{6}4}{1 \cancel{6}} = \frac{4}{1} = 4 \).  For instance [paraphrased from S. Carroll.  Spacetime and Geometry], the escape velocity equation only mentions the <u>initial</u> velocity, but blacks holes are inescapeable from arbitrary timelike curves.
-        </p>
       </div>
 
     </div>
